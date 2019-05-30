@@ -8,18 +8,21 @@ class CreateTodo extends Component {
     this.state = {
       text: '',
     };
-  }
+  };
 
   handleSubmit = event => {
     event.preventDefault();
     this.props.addTodo(this.state)
-  }
+    this.setState({
+      text: ''
+    });
+  };
 
   handleChange(event) {
     this.setState({
       text: event.target.value
     });
-  }
+  };
 
   render() {
     return(
@@ -31,11 +34,11 @@ class CreateTodo extends Component {
        </form>
      </div>
    );
-  }
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
-  addTodo: formData => dispatch({ type: 'ADD_TODO', payload: formData })
-})
+  addTodo: formData => dispatch({ type: 'ADD_TODO', payload: formData });
+});
 
 export default connect(null, mapDispatchToProps)(CreateTodo);

@@ -13,4 +13,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = state => {
+  return {
+    todos: state.todos
+  }
+}
+
+export default connect(mapStateToProps)(TodosContainer);
+
+
